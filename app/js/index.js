@@ -22,9 +22,11 @@ window.onload = () => {
 
   addressbar.addEventListener("keyup", (e) => {
     if (e.keyCode === 13) {
-      const translatedUrl = translateUrlToProxy(addressbar.value);
-      currentNode = addressbar.value.split("/")[0];
-      webview.loadURL(translatedUrl);
+      if (addressbar.value !== "") {
+        const translatedUrl = translateUrlToProxy(addressbar.value);
+        currentNode = addressbar.value.split("/")[0];
+        webview.loadURL(translatedUrl);
+      }
     }
   });
 
@@ -45,7 +47,13 @@ window.onload = () => {
   webview.addEventListener("did-stop-loading", () => {
     loading.classList.remove("spin-anim");
     const url = translateUrlFromProxy(webview.getURL());
-    if (url !== "/stats") {
+
+    if (
+      webview.getURL() === "http://localhost:42000/" ||
+      webview.getURL() === "http://localhost:42000"
+    ) {
+      addressbar.value = "";
+    } else {
       if (url.includes("/proxy/")) {
         addressbar.value = currentNode;
       } else {
