@@ -37,3 +37,20 @@
   position: absolute;
   left: 7.7em;
 }
+
+.titlebar .loading {
+  margin-left: 12px;
+}
+
+.spin-anim {
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -5,6 +5,7 @@ window.onload = () => {
   const addressbar = document.querySelector("#addressbar");
   const webview = document.querySelector("#webview");
   const backBtn = document.querySelector("#back");
+  const loading = document.querySelector("#loading");
 
   let currentNode = "";
 
@@ -22,7 +23,12 @@ window.onload = () => {
     }
   });
 
+  webview.addEventListener("did-start-loading", () => {
+    loading.classList.add("spin-anim");
+  });
+
   webview.addEventListener("did-stop-loading", () => {
+    loading.classList.remove("spin-anim");
     const url = translateUrlFromProxy(webview.getURL());
     if (url !== "/stats") {
       if (url.includes("/proxy/")) {
