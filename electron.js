@@ -10,7 +10,7 @@ function createWindow() {
     show: false,
   });
 
-  win.menuBarVisible = false;
+  // win.menuBarVisible = false;
   win.loadFile("app/index.html");
 
   win.show();
