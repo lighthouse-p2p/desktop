@@ -98,6 +98,10 @@
   display: none;
 }
 
+.traffic-light-spacer {
+  width: 102px;
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);

@@ -4,14 +4,19 @@ let win = null;
 
 function createWindow() {
   win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1024,
+    height: 768,
     webPreferences: {
       webviewTag: true,
       nodeIntegration: true,
     },
     show: false,
     frame: process.platform !== "win32",
+    titleBarStyle: process.platform === "darwin" ? "hidden" : "default",
+    trafficLightPosition: {
+      x: 20,
+      y: 36,
+    },
   });
 
   win.menuBarVisible = process.platform === "darwin";

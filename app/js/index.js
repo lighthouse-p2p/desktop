@@ -30,6 +30,11 @@ const setupWindows = () => {
   });
 };
 
+const setupDarwin = () => {
+  const spacer = document.querySelector("#spacer");
+  spacer.classList.remove("gone");
+};
+
 window.onload = () => {
   const addressbar = document.querySelector("#addressbar");
   const webview = document.querySelector("#webview");
@@ -40,6 +45,10 @@ window.onload = () => {
 
   if (process.platform === "win32") {
     setupWindows();
+  }
+
+  if (process.platform === "darwin") {
+    setupDarwin();
   }
 
   let currentNode = "";
