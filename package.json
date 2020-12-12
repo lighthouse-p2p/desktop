@@ -15,11 +15,14 @@
   },
   "scripts": {
     "start": "yarn electron electron.js",
-    "build:win": "electron-builder --win"
+    "build:win": "electron-builder --win",
+    "build:macos": "electron-packager . \"Lighthouse\" --platform=darwin --arch=x64 --out=dist/",
+    "build": "yarn build:win && yarn build:mac"
   },
   "devDependencies": {
     "electron": "^11.1.0",
-    "electron-builder": "^22.9.1"
+    "electron-builder": "^22.9.1",
+    "electron-packager": "^15.2.0"
   },
   "dependencies": {
     "electron-context-menu": "^2.3.0"
