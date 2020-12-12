@@ -1,0 +1,16 @@
+{
+  "name": "@lighthouse/desktop",
+  "version": "1.0.0",
+  "description": "Desktop application for the lighthouse peer",
+  "main": "electron.js",
+  "repository": "https://github.com/lighthouse-p2p/desktop",
+  "author": "Akshit Garg <garg.akshit@gmail.com>",
+  "license": "GPL-3.0-or-later",
+  "private": false,
+  "scripts": {
+    "start": "yarn electron electron.js"
+  },
+  "devDependencies": {
+    "electron": "^11.1.0"
+  }
+}
