@@ -49,11 +49,9 @@ button {
 
   cursor: pointer;
 
-  -webkit-app-region: no-drag;
-}
-
-.rounded {
   border-radius: 4px;
+
+  -webkit-app-region: no-drag;
 }
 
 button:hover {
