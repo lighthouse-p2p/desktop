@@ -10,7 +10,7 @@ function createWindow() {
     show: false,
   });
 
-  // win.menuBarVisible = false;
+  win.menuBarVisible = process.platform === "darwin";
   win.loadFile("app/index.html");
 
   win.show();
