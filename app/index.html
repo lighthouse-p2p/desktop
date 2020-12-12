@@ -5,12 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lighthouse Desktop</title>
     <link rel="stylesheet" href="./css/index.css" />
+    <script src="./js/index.js"></script>
   </head>
   <body>
-    <div class="titlebar">
-      <img src="./static/icon.svg" width="56px" />
-      <input type="text" class="addressbar" />
-      <p class="protocol-hint">lighthouse://</p>
+    <div class="flex-col">
+      <div class="titlebar">
+        <img src="./static/icon.svg" width="56px" />
+        <input type="text" class="addressbar" id="addressbar" />
+        <p class="protocol-hint">lighthouse://</p>
+      </div>
+      <div class="page">
+        <webview
+          id="webview"
+          src="http://localhost:42000/stats"
+          style="display: inline-flex; width: 100%; height: 100%"
+        ></webview>
+      </div>
     </div>
   </body>
 </html>
