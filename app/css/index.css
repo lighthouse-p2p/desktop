@@ -29,3 +29,18 @@ html {
   display: flex;
   flex-direction: column;
 }
+
+button {
+  background: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+
+  padding-left: 2px;
+  padding-right: 2px;
+
+  outline: none;
+  border: none;
+
+  cursor: pointer;
+}

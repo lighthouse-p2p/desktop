@@ -1,6 +1,10 @@
+const translateUrlToProxy = (url) => `http://localhost:42000/proxy/${url}`;
+const translateUrlFromProxy = (url) => url.replace(/http.\/\/.*:...../, "");
+
 window.onload = () => {
-  const addressbar = document.querySelector(".addressbar");
-  const webview = document.querySelector("webview");
+  const addressbar = document.querySelector("#addressbar");
+  const webview = document.querySelector("#webview");
+  const backBtn = document.querySelector("#back");
 
   let currentNode = "";
 
@@ -8,8 +12,13 @@ window.onload = () => {
     if (e.keyCode === 13) {
       const translatedUrl = translateUrlToProxy(addressbar.value);
       currentNode = addressbar.value.split("/")[0];
-      console.log(currentNode);
       webview.loadURL(translatedUrl);
+    }
+  });
+
+  backBtn.addEventListener("click", () => {
+    if (webview.canGoBack()) {
+      webview.goBack();
     }
   });
 
@@ -23,7 +32,4 @@ window.onload = () => {
       }
     }
   });
-
-  const translateUrlToProxy = (url) => `http://localhost:42000/proxy/${url}`;
-  const translateUrlFromProxy = (url) => url.replace(/http.\/\/.*:...../, "");
 };
