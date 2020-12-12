@@ -1,13 +1,17 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, ipcMain } = require("electron");
+
+let win = null;
 
 function createWindow() {
-  const win = new BrowserWindow({
+  win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
       webviewTag: true,
+      nodeIntegration: true,
     },
     show: false,
+    frame: process.platform !== "win32",
   });
 
   win.menuBarVisible = process.platform === "darwin";
@@ -15,6 +19,14 @@ function createWindow() {
 
   win.show();
 }
+
+ipcMain.on("close", (_, __) => {
+  app.quit();
+});
+
+ipcMain.on("minimize", (_, __) => {
+  win.minimize();
+});
 
 app.whenReady().then(createWindow);
 

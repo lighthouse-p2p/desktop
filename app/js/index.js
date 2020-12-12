@@ -4,6 +4,32 @@ const translateUrlFromProxy = (url) => url.replace(/http.\/\/.*:...../, "");
 const fetchCoins = () =>
   fetch("http://localhost:42000/coins").then((res) => res.text());
 
+const closeWindow = () => {
+  const { ipcRenderer } = require("electron");
+  ipcRenderer.send("close");
+};
+
+const minimizeWindow = () => {
+  const { ipcRenderer } = require("electron");
+  ipcRenderer.send("minimize");
+};
+
+const setupWindows = () => {
+  const close = document.querySelector("#close");
+  const minimize = document.querySelector("#minimize");
+
+  close.classList.remove("gone");
+  minimize.classList.remove("gone");
+
+  close.addEventListener("click", (_) => {
+    closeWindow();
+  });
+
+  minimize.addEventListener("click", (_) => {
+    minimizeWindow();
+  });
+};
+
 window.onload = () => {
   const addressbar = document.querySelector("#addressbar");
   const webview = document.querySelector("#webview");
@@ -11,6 +37,10 @@ window.onload = () => {
   const reloadBtn = document.querySelector("#reload");
   const loading = document.querySelector("#loading");
   const coins = document.querySelector("#coins");
+
+  if (process.platform === "win32") {
+    setupWindows();
+  }
 
   let currentNode = "";
 
@@ -30,6 +60,8 @@ window.onload = () => {
     }
   });
 
+  console.log(process.platform);
+
   backBtn.addEventListener("click", () => {
     if (webview.canGoBack()) {
       webview.goBack();
@@ -45,7 +77,7 @@ window.onload = () => {
   });
 
   webview.addEventListener("did-stop-loading", () => {
-    loading.classList.remove("spin-anim");
+    setTimeout(() => loading.classList.remove("spin-anim"), 750);
     const url = translateUrlFromProxy(webview.getURL());
 
     if (

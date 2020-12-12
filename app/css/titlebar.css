@@ -10,6 +10,8 @@
 
   background-color: #202124;
   color: white;
+
+  -webkit-app-region: drag;
 }
 
 .addressbar {
@@ -39,12 +41,16 @@
   height: 32px;
 
   margin-right: 16px;
+
+  -webkit-app-region: no-drag;
 }
 
 .protocol-hint {
   position: absolute;
   top: -10px;
   left: 1.6em;
+
+  user-select: none;
 }
 
 .titlebar .loading {
@@ -54,10 +60,42 @@
 .titlebar .coins {
   padding-left: 12px;
   padding-right: 12px;
+
+  user-select: none;
 }
 
 .spin-anim {
   animation: spin 2s linear infinite;
+}
+
+.close {
+  height: 32px;
+  width: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close:hover {
+  background-color: #d41324;
+}
+
+.minimize {
+  height: 32px;
+  width: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.minimize:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.gone {
+  display: none;
 }
 
 @keyframes spin {
