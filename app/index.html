@@ -11,9 +11,18 @@
     <div class="flex-col">
       <div class="titlebar">
         <div class="traffic-light-spacer gone" id="spacer"></div>
-        <img src="./static/icon.svg" width="56px" />
-        <button id="back"><img src="./static/back.svg" width="20px" /></button>
-        <button id="reload">
+        <button
+          id="back"
+          class="rounded"
+          style="padding-left: 8px; padding-right: 8px"
+        >
+          <img src="./static/back.svg" width="20px" />
+        </button>
+        <button
+          id="reload"
+          class="rounded"
+          style="padding-left: 6px; padding-right: 6px"
+        >
           <img
             src="./static/refresh.svg"
             width="24px"
@@ -22,7 +31,12 @@
           />
         </button>
         <div class="addresscontainer">
-          <input type="text" class="addressbar" id="addressbar" />
+          <input
+            type="text"
+            class="addressbar"
+            id="addressbar"
+            spellcheck="false"
+          />
           <p class="protocol-hint">lighthouse://</p>
         </div>
         <p class="coins" style="display: flex">

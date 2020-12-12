@@ -36,8 +36,12 @@ button {
   margin: 0;
   padding: 0;
 
-  padding-left: 2px;
-  padding-right: 2px;
+  height: 32px;
+  width: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   outline: none;
   border: none;
@@ -45,4 +49,12 @@ button {
   cursor: pointer;
 
   -webkit-app-region: no-drag;
+}
+
+.rounded {
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }

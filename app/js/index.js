@@ -65,6 +65,9 @@ window.onload = () => {
         const translatedUrl = translateUrlToProxy(addressbar.value);
         currentNode = addressbar.value.split("/")[0];
         webview.loadURL(translatedUrl);
+
+        addressbar.blur();
+        webview.focus();
       }
     }
   });
