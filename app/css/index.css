@@ -1,5 +1,6 @@
 @import url(./page.css);
 @import url(./titlebar.css);
+@import url(./font.css);
 
 body {
   width: 100%;
