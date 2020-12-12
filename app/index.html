@@ -11,15 +11,21 @@
     <div class="flex-col">
       <div class="titlebar">
         <img src="./static/icon.svg" width="56px" />
-        <button id="back"><img src="./static/back.svg" width="24px" /></button>
+        <button id="back"><img src="./static/back.svg" width="20px" /></button>
+        <button id="reload">
+          <img
+            src="./static/refresh.svg"
+            width="24px"
+            class="loading"
+            id="loading"
+          />
+        </button>
         <input type="text" class="addressbar" id="addressbar" />
         <p class="protocol-hint">lighthouse://</p>
-        <img
-          src="./static/refresh.svg"
-          width="24px"
-          class="loading"
-          id="loading"
-        />
+        <p class="coins" style="display: flex">
+          <span>Coins:&nbsp;</span>
+          <span id="coins"></span>
+        </p>
       </div>
       <div class="page">
         <webview
