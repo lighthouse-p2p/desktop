@@ -57,7 +57,7 @@ window.onload = () => {
 
   setInterval(() => {
     fetchCoins().then((res) => (coins.innerText = res));
-  }, 1000);
+  }, 10000);
 
   addressbar.addEventListener("keyup", (e) => {
     if (e.keyCode === 13) {
