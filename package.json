@@ -7,11 +7,19 @@
   "author": "Akshit Garg <garg.akshit@gmail.com>",
   "license": "GPL-3.0-or-later",
   "private": false,
+  "build": {
+    "appId": "garg.akshit.lighthouse.desktop",
+    "win": {
+      "target": "portable"
+    }
+  },
   "scripts": {
-    "start": "yarn electron electron.js"
+    "start": "yarn electron electron.js",
+    "build:win": "electron-builder --win"
   },
   "devDependencies": {
-    "electron": "^11.1.0"
+    "electron": "^11.1.0",
+    "electron-builder": "^22.9.1"
   },
   "dependencies": {
     "electron-context-menu": "^2.3.0"
