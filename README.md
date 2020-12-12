@@ -1,4 +1,4 @@
-<h1 align="center">Lighthouse 🕯 Desktop</h1>
+<h1 align="center">Lighthouse Desktop</h1>
 <p align="center">The desktop app for Lighthouse p2p</p>
 
 ---
