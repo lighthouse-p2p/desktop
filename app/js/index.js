@@ -16,6 +16,10 @@ window.onload = () => {
 
   fetchCoins().then((res) => (coins.innerText = res));
 
+  setInterval(() => {
+    fetchCoins().then((res) => (coins.innerText = res));
+  }, 1000);
+
   addressbar.addEventListener("keyup", (e) => {
     if (e.keyCode === 13) {
       const translatedUrl = translateUrlToProxy(addressbar.value);
