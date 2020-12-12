@@ -1,9 +1,21 @@
-const { app, BrowserWindow, ipcMain } = require("electron");
+const { app, BrowserWindow, ipcMain, shell } = require("electron");
+const contextMenu = require("electron-context-menu");
 
-let win = null;
+contextMenu({
+  showSearchWithGoogle: false,
+});
+
+app.on("web-contents-created", (_, contents) => {
+  contents.on("new-window", (e, url) => {
+    e.preventDefault();
+    shell.openExternal(url);
+  });
+});
+
+let mainWindow = null;
 
 function createWindow() {
-  win = new BrowserWindow({
+  mainWindow = new BrowserWindow({
     width: 1024,
     height: 768,
     webPreferences: {
@@ -19,10 +31,10 @@ function createWindow() {
     },
   });
 
-  win.menuBarVisible = process.platform === "darwin";
-  win.loadFile("app/index.html");
+  mainWindow.menuBarVisible = process.platform === "darwin";
+  mainWindow.loadFile("app/index.html");
 
-  win.show();
+  mainWindow.show();
 }
 
 ipcMain.on("close", (_, __) => {
@@ -30,7 +42,7 @@ ipcMain.on("close", (_, __) => {
 });
 
 ipcMain.on("minimize", (_, __) => {
-  win.minimize();
+  mainWindow.minimize();
 });
 
 app.whenReady().then(createWindow);

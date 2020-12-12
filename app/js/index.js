@@ -72,8 +72,6 @@ window.onload = () => {
     }
   });
 
-  console.log(process.platform);
-
   backBtn.addEventListener("click", () => {
     if (webview.canGoBack()) {
       webview.goBack();
